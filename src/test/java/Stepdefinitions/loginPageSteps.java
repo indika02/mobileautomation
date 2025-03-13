@@ -1,16 +1,9 @@
 package Stepdefinitions;
 
-import Common.appSetup;
 import Pages.loginPage;
-import io.appium.java_client.AppiumDriver;
-import io.appium.java_client.android.AndroidDriver;
-import io.appium.java_client.android.options.UiAutomator2Options;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
-
-import java.io.File;
 import java.net.MalformedURLException;
-import java.net.URL;
 
 public class loginPageSteps {
 

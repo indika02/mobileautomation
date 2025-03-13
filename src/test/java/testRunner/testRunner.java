@@ -7,8 +7,8 @@ import org.junit.runner.RunWith;
 @RunWith(Cucumber.class)
 @CucumberOptions(
 
-        features = {"Features/Login.feature"}, // Correct feature file path
-        glue = {"stepDefinitions"},
+        features = "Features/Login.feature",
+        glue = {"Stepdefinitions"},
         plugin = {
                 "json:target/cucumber.json",
                 "io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm"
