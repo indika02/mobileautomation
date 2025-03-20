@@ -22,6 +22,7 @@ public class appSetup {
         options.setAutomationName(config.getautomationName());
         options.setPlatformVersion(config.getplatformVersion());
         options.setDeviceName(config.getdeviceName());
+        options.setAutoGrantPermissions(true);
         options.setApp(new File(config.getApp()).getAbsolutePath());
         driver = new AndroidDriver(new URL(config.getURL()), options);
         loginPage = new loginPage(driver);

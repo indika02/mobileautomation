@@ -13,8 +13,10 @@ public class loginPage extends actionCommands {
 
     private AndroidDriver driver;
     private appSetup appSetup;
-    private By searchIcon= new AppiumBy.ByAccessibilityId("Search");
-    private By searchBox= By.id("android:id/search_src_text");
+    private By emailTextBox = AppiumBy.androidUIAutomator("new UiSelector().className(\"android.widget.EditText\").instance(0)");
+    private By pwdTxtBox=AppiumBy.androidUIAutomator("new UiSelector().className(\"android.widget.EditText\").instance(1)");
+    private By loginBtn=By.xpath("//android.widget.Button[@content-desc=\"Log in\"]/android.view.ViewGroup");
+    private By saveLoginInfoBtn=AppiumBy.androidUIAutomator("new UiSelector().description(\"OK\")");
 
     public loginPage(AndroidDriver driver) {
         this.driver = driver;
@@ -28,11 +30,23 @@ public class loginPage extends actionCommands {
         PageFactory.initElements(driver, this);
     }
 
-    public void clickSearchIcon(){
-        click(driver, searchIcon);
+    public void enter_Email(String email){
+        waitTime(driver,emailTextBox);
+        type(driver,emailTextBox,email);
     }
 
-    public void searchText(String text){
-        type(driver, searchBox, text);
+    public void enter_Pwd(String pwd){
+        waitTime(driver,pwdTxtBox);
+        type(driver,pwdTxtBox,pwd);
+    }
+
+    public void click_Login(){
+        waitTime(driver,loginBtn);
+        click(driver,loginBtn);
+    }
+
+    public void saveLoginInfo(){
+        waitTime(driver,saveLoginInfoBtn);
+        click(driver,saveLoginInfoBtn);
     }
 }
