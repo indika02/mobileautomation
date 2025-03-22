@@ -45,4 +45,8 @@ public class configDataProvider {
         return properties.getProperty("URL");
     }
 
+    public String getPackageName(){
+        return properties.getProperty("packageName");
+    }
+
 }

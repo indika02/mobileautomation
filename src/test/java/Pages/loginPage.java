@@ -49,4 +49,5 @@ public class loginPage extends actionCommands {
         waitTime(driver,saveLoginInfoBtn);
         click(driver,saveLoginInfoBtn);
     }
+
 }

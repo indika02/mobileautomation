@@ -9,7 +9,7 @@ import java.net.URL;
 
 public class appSetup {
 
-    private AndroidDriver driver;
+    private static AndroidDriver driver;
     private loginPage loginPage;
     public appSetup() {
 
@@ -22,13 +22,21 @@ public class appSetup {
         options.setAutomationName(config.getautomationName());
         options.setPlatformVersion(config.getplatformVersion());
         options.setDeviceName(config.getdeviceName());
+        options.setAppPackage(config.getPackageName());
         options.setAutoGrantPermissions(true);
         options.setApp(new File(config.getApp()).getAbsolutePath());
         driver = new AndroidDriver(new URL(config.getURL()), options);
+        try {
+            if (driver.isKeyboardShown()) {
+                driver.hideKeyboard();
+            }
+        } catch (Exception e) {
+            System.out.println("Keyboard was not open: " + e.getMessage());
+        }
         loginPage = new loginPage(driver);
 
     }
-    public AndroidDriver getDriver() {
+    public static AndroidDriver getDriver() {
         return driver;
     }
 }

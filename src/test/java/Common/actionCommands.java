@@ -2,6 +2,7 @@ package Common;
 
 import io.appium.java_client.AppiumDriver;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedCondition;
@@ -33,5 +34,14 @@ public class actionCommands {
         wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
     }
 
+    protected void clickEnter(AppiumDriver driver, By locator) {
+        WebElement element = driver.findElement(locator);
+        element.sendKeys(Keys.ENTER);
+    }
+
+    protected void verifyTextAvailability(AppiumDriver driver, By locator, String text) {
+        WebElement element = driver.findElement(locator);
+        Assert.assertEquals(element.getDomAttribute("content-desc"), text);
+    }
 
 }

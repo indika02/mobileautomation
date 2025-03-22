@@ -1,10 +1,24 @@
 Feature: Dashboard test cases
 
-  @login @search_user
+  @dashboard @search_user
   Scenario: Searching a user account
     Given Load the App
     Then Enter the email as 0767291539
     Then Enter the Password as Iit19002indika12@#
     Then Click Login button
     Then Click Ok for save the login info
-    Then Enter the user name as Indika
+    Then Click the search icon
+    Then Enter the user's name as Indika
+
+  @dashboard @friends_tab
+  Scenario: Check the Availability of friends tab
+    Given Load the App
+    Then Enter the email as 0767291539
+    Then Enter the Password as Iit19002indika12@#
+    Then Click Login button
+    Then Click Ok for save the login info
+    Then Click on the friends tab
+    Then Verify the tab title as Friends
+
+
+

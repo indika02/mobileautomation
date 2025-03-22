@@ -1,6 +1,6 @@
 Feature: Login page test cases
   
-  @login
+  @login @valid_login
   Scenario: Login to the FB Account
     Given Load the App
     Then Enter the email as 0767291539
