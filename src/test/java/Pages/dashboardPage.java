@@ -14,7 +14,9 @@ public class dashboardPage extends actionCommands {
     private By searchBox=new AppiumBy.ByAccessibilityId("Search...");
     private By friendTabIcon=AppiumBy.androidUIAutomator("new UiSelector().description(\"\uE005\")");
     private By friendsTabTitle=new AppiumBy.ByAccessibilityId("Friends");
-
+    private By settingsIcon=AppiumBy.androidUIAutomator("new UiSelector().description(\"\uE01E\")");
+    private By logoutBtn=AppiumBy.androidUIAutomator("new UiSelector().description(\"Log out\")");
+    private By confirmYes=AppiumBy.androidUIAutomator("new UiSelector().description(\"Yes\")");
 
     public dashboardPage(AndroidDriver driver) {
         this.driver = driver;
@@ -41,5 +43,4 @@ public class dashboardPage extends actionCommands {
         waitTime(driver,friendTabIcon);
         click(driver,friendTabIcon);
     }
-
 }

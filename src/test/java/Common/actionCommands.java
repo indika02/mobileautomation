@@ -1,10 +1,8 @@
 package Common;
 
+import io.appium.java_client.AppiumBy;
 import io.appium.java_client.AppiumDriver;
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -43,5 +41,16 @@ public class actionCommands {
         WebElement element = driver.findElement(locator);
         Assert.assertEquals(element.getDomAttribute("content-desc"), text);
     }
+
+    protected void verifyText(AppiumDriver driver,By locator, String text){
+        WebElement element=driver.findElement(locator);
+        Assert.assertEquals(element.getText(), text);
+    }
+
+    protected void ignoreNotifications(AppiumDriver driver){
+        Alert alert = driver.switchTo().alert();
+        alert.dismiss();
+    }
+
 
 }

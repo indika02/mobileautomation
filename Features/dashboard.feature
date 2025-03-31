@@ -20,5 +20,3 @@ Feature: Dashboard test cases
     Then Click on the friends tab
     Then Verify the tab title as Friends
 
-
-

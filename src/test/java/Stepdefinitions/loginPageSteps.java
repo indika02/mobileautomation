@@ -34,4 +34,14 @@ public class loginPageSteps {
         loginPage.saveLoginInfo();
     }
 
+    @Then("^Verify the error message as (.*)$")
+    public void verify_error_message_as(String message) {
+        loginPage.verifyLoginErrorMsg(message);
+    }
+
+    @Then("Click the Forgot password link")
+    public void click_the_Forgot_password_link() {
+        loginPage.clickForgotPwdLink();
+    }
+
 }
