@@ -39,4 +39,5 @@ public class appSetup {
     public static AndroidDriver getDriver() {
         return driver;
     }
+
 }

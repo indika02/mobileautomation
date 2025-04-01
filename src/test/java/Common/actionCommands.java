@@ -3,12 +3,15 @@ package Common;
 import io.appium.java_client.AppiumBy;
 import io.appium.java_client.AppiumDriver;
 import org.openqa.selenium.*;
+import org.openqa.selenium.interactions.PointerInput;
+import org.openqa.selenium.interactions.Sequence;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 import java.time.Duration;
+import java.util.Collections;
 
 public class actionCommands {
 
@@ -50,6 +53,22 @@ public class actionCommands {
     protected void ignoreNotifications(AppiumDriver driver){
         Alert alert = driver.switchTo().alert();
         alert.dismiss();
+    }
+
+    public void swipeFacebookStory(AppiumDriver driver,By locator) {
+
+        WebElement stories = driver.findElement(locator);
+        int startX = stories.getLocation().getX() + (int) (stories.getSize().width * 0.8);
+        int endX = stories.getLocation().getX() + (int) (stories.getSize().width * 0.2);
+        int startY = stories.getLocation().getY() + (stories.getSize().height / 2);
+
+        PointerInput finger = new PointerInput(PointerInput.Kind.TOUCH, "finger");
+        Sequence swipe = new Sequence(finger, 1)
+                .addAction(finger.createPointerMove(Duration.ofMillis(0), PointerInput.Origin.viewport(), startX, startY))
+                .addAction(finger.createPointerDown(PointerInput.MouseButton.LEFT.asArg()))
+                .addAction(finger.createPointerMove(Duration.ofMillis(50), PointerInput.Origin.viewport(), endX, startY))
+                .addAction(finger.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
+        driver.perform(Collections.singletonList(swipe));
     }
 
 

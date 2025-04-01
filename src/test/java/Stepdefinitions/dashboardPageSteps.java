@@ -35,4 +35,14 @@ public class dashboardPageSteps {
         dashboardPage.verifyTabTitle(title);
     }
 
+    @Then("Swipe a facebook story")
+    public void swipe_a_facebook_story() {
+        dashboardPage.swipeStories();
+    }
+
+    @Then("Click on the Story")
+    public void click_on_the_story() {
+        dashboardPage.viewStory();
+    }
+
 }
