@@ -45,4 +45,14 @@ public class dashboardPageSteps {
         dashboardPage.viewStory();
     }
 
+    @Then("Click the notification tab")
+    public void click_the_notification_tab(){
+        dashboardPage.clickNotifiTab();
+    }
+
+    @Then("Swipe the notifications")
+    public void swipe_the_notifications(){
+        dashboardPage.seeNotifications();
+    }
+
 }

@@ -2,7 +2,11 @@ package Common;
 
 import io.appium.java_client.AppiumBy;
 import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.TouchAction;
+import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.touch.offset.PointOption;
 import org.openqa.selenium.*;
+import org.openqa.selenium.interactions.Pause;
 import org.openqa.selenium.interactions.PointerInput;
 import org.openqa.selenium.interactions.Sequence;
 import org.openqa.selenium.support.ui.ExpectedCondition;
@@ -71,5 +75,23 @@ public class actionCommands {
         driver.perform(Collections.singletonList(swipe));
     }
 
+    public void swipeNotification(AppiumDriver driver,By locator) {
+        WebElement element = driver.findElement(locator);
+
+        // Get element's position and size
+        int centerX = element.getLocation().getX() + (element.getSize().width / 2);
+        int startY = element.getLocation().getY() + (int) (element.getSize().height * 0.8); // Start near the bottom
+        int endY = element.getLocation().getY() + (int) (element.getSize().height * 0.2);  // End near the top
+
+        PointerInput finger = new PointerInput(PointerInput.Kind.TOUCH, "finger");
+        Sequence swipe = new Sequence(finger, 100)
+                .addAction(finger.createPointerMove(Duration.ofMillis(0), PointerInput.Origin.viewport(), centerX, startY)) // Start at bottom
+                .addAction(finger.createPointerDown(PointerInput.MouseButton.LEFT.asArg()))
+                .addAction(new Pause(finger, Duration.ofMillis(500))) // Pause for realism
+                .addAction(finger.createPointerMove(Duration.ofMillis(10000), PointerInput.Origin.viewport(), centerX, endY)) // Move to top
+                .addAction(finger.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
+
+        driver.perform(Collections.singletonList(swipe));
+    }
 
 }

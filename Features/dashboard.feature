@@ -37,3 +37,13 @@ Feature: Dashboard test cases
     Then Click Login button
     Then Click Ok for save the login info
     Then Click on the Story
+
+  @dashboard @view_notifications
+  Scenario: View the received notifications
+    Given Load the App
+    Then Enter the email as 0767291539
+    Then Enter the Password as Iit19002indika12@#
+    Then Click Login button
+    Then Click Ok for save the login info
+    Then Click the notification tab
+    Then Swipe the notifications

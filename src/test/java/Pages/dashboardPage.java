@@ -15,6 +15,8 @@ public class dashboardPage extends actionCommands {
     private By friendTabIcon=AppiumBy.androidUIAutomator("new UiSelector().description(\"\uE005\")");
     private By friendsTabTitle=new AppiumBy.ByAccessibilityId("Friends");
     private By story=AppiumBy.xpath("//android.widget.Button[contains(@content-desc, '1 Unseen story')]");
+    private By notificationTab=AppiumBy.androidUIAutomator("new UiSelector().description(\"\uE008\")");
+    private By notification=AppiumBy.androidUIAutomator("new UiSelector().className(\"android.view.ViewGroup\").instance(18)");
 
     public dashboardPage(AndroidDriver driver) {
         this.driver = driver;
@@ -50,5 +52,15 @@ public class dashboardPage extends actionCommands {
     public void viewStory(){
         waitTime(driver,story);
         click(driver,story);
+    }
+
+    public void clickNotifiTab(){
+        waitTime(driver,notificationTab);
+        click(driver,notificationTab);
+    }
+
+    public void seeNotifications(){
+        waitTime(driver,notification);
+        swipeNotification(driver,notification);
     }
 }

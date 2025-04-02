@@ -8,6 +8,7 @@ Feature: Login page test cases
     Then Click Login button
     Then Click Ok for save the login info
 
+
   @login @invalid_login
   Scenario: Verify the invalid login error message
     Given Load the App

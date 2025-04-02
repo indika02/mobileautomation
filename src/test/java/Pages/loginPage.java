@@ -68,5 +68,9 @@ public class loginPage extends actionCommands {
         click(driver,forgotPwdLink);
     }
 
+    public void closeApp(){
+        driver.close();
+    }
+
 
 }

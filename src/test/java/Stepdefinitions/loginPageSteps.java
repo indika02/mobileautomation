@@ -3,10 +3,14 @@ package Stepdefinitions;
 import Pages.loginPage;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.net.MalformedURLException;
 
 public class loginPageSteps {
 
+    private static final Logger log = LoggerFactory.getLogger(loginPageSteps.class);
     private loginPage loginPage=new loginPage(null);
 
     @Given("Load the App")
@@ -42,6 +46,11 @@ public class loginPageSteps {
     @Then("Click the Forgot password link")
     public void click_the_Forgot_password_link() {
         loginPage.clickForgotPwdLink();
+    }
+
+    @Then("Close the App")
+    public void close_app(){
+        loginPage.closeApp();
     }
 
 }

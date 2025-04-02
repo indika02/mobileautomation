@@ -24,7 +24,7 @@ public class appSetup {
         options.setDeviceName(config.getdeviceName());
         options.setAppPackage(config.getPackageName());
         options.setAutoGrantPermissions(true);
-        options.setApp(new File(config.getApp()).getAbsolutePath());
+//        options.setApp(new File(config.getApp()).getAbsolutePath());
         driver = new AndroidDriver(new URL(config.getURL()), options);
         try {
             if (driver.isKeyboardShown()) {
